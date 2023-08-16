@@ -17,7 +17,8 @@ export const fetchAsync = createAsyncThunk(
 export const postAsync = createAsyncThunk(
   'items/postItems',
   async (item) =>{
-    const response = await postItems(item);
+    const {id, title, price, thumbnail} = item;
+    const response = await postItems({id, title, price, thumbnail, quantity:1});
     return response.data;
   }
 )
@@ -46,3 +47,5 @@ export const itemsSlice = createSlice({
       })
   }
 })
+
+export default itemsSlice.reducer;
