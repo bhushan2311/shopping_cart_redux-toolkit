@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { postAsync } from '../cart/cartSlice';
+
 import {
   fetchAsync
 } from './productsSlice';
@@ -11,14 +13,15 @@ export function Products() {
   const state = useSelector((state) => state.product.products);
   return (
     <div>
-      <div className="row">
-
-        <button
+      <nav>
+      <button
           className="button"
           onClick={() => dispatch(fetchAsync())}
         >
           Fetch Products
         </button>
+      </nav>
+      <div className="row">
 
         {state.map((item) => (
           <div className="card">
@@ -26,7 +29,7 @@ export function Products() {
             <h1>{item.title}</h1>
             <p className="price">{item.price}</p>
             <p>{item.description}</p>
-            <p><button>Add to Cart</button></p>
+            <p><button onClick={()=> dispatch(postAsync(item))}>Add to Cart</button></p>
           </div>
         ))}
       </div>

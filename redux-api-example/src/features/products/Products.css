@@ -4,6 +4,7 @@
   margin: auto;
   text-align: center;
   font-family: arial;
+  background-color: #f7efff;
 }
 
 .price {
@@ -25,4 +26,13 @@
 
 .card button:hover {
   opacity: 0.7;
+}
+
+.row {
+  /* border: 2px solid green; */
+  display: grid;
+  grid: auto auto / auto auto auto auto;
+  grid-gap: 10px;
+  background-color: #f3f3f3;
+  padding: 10px;
 }
