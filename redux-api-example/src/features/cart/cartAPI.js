@@ -12,3 +12,7 @@ export function postItems(item){
 export function deleteItems(id){
   return axios.delete(`http://localhost:8080/items/${id}`);
 }
+
+export function UpdateItems({item,change}){
+  return axios.patch(`http://localhost:8080/items/${item.id}`,{quantity:change});
+}
