@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { fetchItems,postItems } from  './cartAPI';
+import { fetchItems,postItems,deleteItems } from  './cartAPI';
 
 const initialState = {
   items: [],
@@ -20,6 +20,14 @@ export const postAsync = createAsyncThunk(
     const {id, title, price, thumbnail} = item;
     const response = await postItems({id, title, price, thumbnail, quantity:1});
     return response.data;
+  }
+)
+
+export const deleteAsync = createAsyncThunk(
+  'items/deleteItems',
+  async ({id}) =>{
+    await deleteItems(id);
+    return id;
   }
 )
 
@@ -44,6 +52,14 @@ export const itemsSlice = createSlice({
       .addCase(postAsync.fulfilled,(state,action)=>{
         state.status = 'idle';
         state.items.push(action.payload);
+      })
+      .addCase(deleteAsync.rejected,(state,action)=>{
+        state.status = 'idle';
+      })
+      .addCase(deleteAsync.fulfilled,(state,action)=>{
+        state.status = 'idle';
+        const index = state.items.findIndex((item)=> item.id === action.payload);
+        state.items.splice(index,1);
       })
   }
 })

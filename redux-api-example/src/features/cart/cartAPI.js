@@ -8,3 +8,7 @@ export function fetchItems() {
 export function postItems(item){
   return axios.post('http://localhost:8080/items',item);
 }
+
+export function deleteItems(id){
+  return axios.delete(`http://localhost:8080/items/${id}`);
+}
