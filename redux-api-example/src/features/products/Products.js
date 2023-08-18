@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { postAsync } from '../cart/cartSlice';
 
@@ -10,16 +10,20 @@ import './Products.css';
 export function Products() {
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(fetchAsync())
+  }, [])
+
   const state = useSelector((state) => state.product.products);
   return (
     <div>
       <nav>
-      <button
+      {/* <button
           className="button"
           onClick={() => dispatch(fetchAsync())}
         >
           Fetch Products
-        </button>
+        </button> */}
       </nav>
       <div className="row">
 
