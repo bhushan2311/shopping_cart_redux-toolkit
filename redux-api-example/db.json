@@ -460,10 +460,10 @@
   ],
   "items": [
     {
-      "id": 4,
-      "title": "OPPOF19",
-      "price": 280,
-      "thumbnail": "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
+      "id": 2,
+      "title": "iPhone X",
+      "price": 899,
+      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
       "quantity": 1
     }
   ]

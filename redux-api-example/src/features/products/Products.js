@@ -28,7 +28,7 @@ export function Products() {
       <div className="row">
 
         {state.map((item) => (
-          <div className="card">
+          <div key={item.id} className="card">
             <img src={item.thumbnail} alt="Denim Jeans" style={{ width: "100%" }} />
             <h1>{item.title}</h1>
             <p className="price">{item.price}</p>

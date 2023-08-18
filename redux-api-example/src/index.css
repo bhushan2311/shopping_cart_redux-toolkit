@@ -11,3 +11,34 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* border: 2px solid yellow; */
+  background-color: black;
+}
+
+.nav .options .lists{
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  list-style: none;
+  padding: 3px;
+}
+
+.nav .options .lists li{
+  margin: 1px 48px;
+}
+.nav .options .lists li a{
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+.head{
+  
+  color: white;
+}
